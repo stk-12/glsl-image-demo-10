@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GLSL DEMO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <h1>Swiper + GLSL</h1>
+    <div class="container">
+      <div class="inner">
+        <div class="slider swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slider__img">
+                <img src="src/images/img01.jpg" data-img="images/img02.jpg" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider__img">
+                <img src="src/images/img02.jpg" data-img="images/img03.jpg" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider__img">
+                <img src="src/images/img03.jpg" data-img="images/img01.jpg" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider__img">
+                <img src="src/images/img01.jpg" data-img="images/img02.jpg" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider__img">
+                <img src="src/images/img02.jpg" data-img="images/img03.jpg" alt="">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider__img">
+                <img src="src/images/img03.jpg" data-img="images/img01.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-controller">
+            <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg></div>
+            <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31.71 15.29-10-10-1.42 1.42 8.3 8.29H0v2h28.59l-8.29 8.29 1.41 1.41 10-10a1 1 0 0 0 0-1.41z" data-name="3-Arrow Right"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <script type="module" src="src/js/main.js"></script>
+  </body>
+</html>

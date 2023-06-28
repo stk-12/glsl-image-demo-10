@@ -1,0 +1,96 @@
+:root {
+}
+
+body {
+  // overflow: hidden;
+  background: #222;
+  font-family: 'Marcellus', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 100px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  opacity: 0;
+  &.is-loaded {
+    opacity: 1;
+  }
+}
+
+.container {
+  padding: 20vh 0;
+  overflow: hidden;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.slider {
+  &.swiper {
+    overflow: visible;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  // .swiper-wrapper {
+  //   overflow: visible;
+  // }
+  .swiper-slide {
+    width: 25vw;
+  }
+
+  .swiper-controller {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 3.2rem;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    position: relative;
+
+    svg {
+      width: 20px;
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+  .swiper-button-prev {
+    svg{
+      transform: rotate(180deg);
+    }
+  }
+
+}
