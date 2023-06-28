@@ -28,6 +28,8 @@ class Main {
 
     this.imgPlaneArray = [];
 
+    this.sliderState = '';
+
     this.init();
 
     this._slider();
@@ -41,11 +43,30 @@ class Main {
       // loopAdditionalSlides: 1,
       slidesPerView: 'auto',
       spaceBetween: 64,
+      speed: 500,
       grabCursor: true,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      on: {
+        slideNextTransitionStart: () => {
+          console.log('to next');
+          this.sliderState = 'next';
+        },
+        slideNextTransitionEnd: () => {
+          console.log('to next end');
+          this.sliderState = null;
+        },
+        slidePrevTransitionStart: () => {
+          console.log('to prev');
+          this.sliderState = 'prev';
+        },
+        slidePrevTransitionEnd: () => {
+          console.log('to prev end');
+          this.sliderState = null;
+        },
+      }
     });
   }
 
@@ -76,37 +97,6 @@ class Main {
     }
   }
 
-  // _anim(el, inview) {
-  //   if(inview) {
-  //     el.classList.add('is-anim');
-  //     console.log('start anim');
-  //     let chars = el.querySelectorAll('.char');
-
-  //     gsap.to(chars, {
-  //       // y: 0,
-  //       opacity: 1,
-  //       rotateY: 0,
-  //       duration: 0.7,
-  //       ease: Power2.easeOut,
-  //       stagger: {
-  //         each: 0.05,
-  //       }
-  //     })
-  //   } else {
-  //     el.classList.remove('is-anim');
-  //     console.log('end anim');
-
-  //     let chars = el.querySelectorAll('.char');
-  //     gsap.to(chars, {
-  //       // y: 40,
-  //       opacity: 0,
-  //       rotateY: 70,
-  //       duration: 0.4,
-  //     })
-  //   }
-  // }
-
-
   init() {
     this._setRenderer();
     this._setCamera();
@@ -120,7 +110,7 @@ class Main {
   _update() {
 
     for(const img of this.imgPlaneArray) {
-      img.update();
+      img.update(this.sliderState);
     }
 
     //レンダリング

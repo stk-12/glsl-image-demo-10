@@ -17,7 +17,8 @@ void main() {
 
   float scroll = uScroll * 0.005;
 
-  pos.y += cos(pos.x * PI) * 0.08 * scroll;
+  // pos.y += cos(pos.x * PI) * 0.08 * scroll;
+  pos.x += cos(pos.y * PI) * 0.08 * scroll;
 
 
   float delay = ((pos.x + pos.y) * 0.5) * maxDelay;

@@ -97,10 +97,34 @@ export default class Figure {
 		this.mesh.scale.set(this.sizes.x, this.sizes.y, 1)
   }
 
+  setSliderState(state) {
+    if(state === 'next') {
+      gsap.to(this.uniforms.uScroll, {
+        // delay: 0.1,
+        duration: 0.4,
+        value: -120.0,
+      })
+    }
+    if(state === 'prev') {
+      gsap.to(this.uniforms.uScroll, {
+        // delay: 0.1,
+        duration: 0.4,
+        value: 120.0,
+      })
+    }
+    if(!state) {
+      gsap.to(this.uniforms.uScroll, {
+        duration: 0.3,
+        value: 0.0,
+      })
+    }
+
+  }
+
   onMouseEnter() {
     this.$image.addEventListener('mouseenter',()=>{
       gsap.to(this.uniforms.uProg2, {
-        duration: 2.0,
+        duration: 1.6,
         // ease: Power3.easeInOut,
         value: 1.0,
       })
@@ -109,21 +133,21 @@ export default class Figure {
   onMouseLeave() {
     this.$image.addEventListener('mouseleave',()=>{
       gsap.to(this.uniforms.uProg2, {
-        duration: 2.0,
+        duration: 1.6,
         // ease: Power3.easeInOut,
         value: -0.4,
       })
     })
   }
 
-  onScroll() {
-    this.targetScrollY = document.documentElement.scrollTop;
-    this.currentScrollY = lerp(this.currentScrollY, this.targetScrollY, 0.2);
-    this.scrollOffset = this.targetScrollY - this.currentScrollY;
-    this.uniforms.uScroll.value = this.scrollOffset;
-  }
+  // onScroll() {
+  //   this.targetScrollY = document.documentElement.scrollTop;
+  //   this.currentScrollY = lerp(this.currentScrollY, this.targetScrollY, 0.2);
+  //   this.scrollOffset = this.targetScrollY - this.currentScrollY;
+  //   this.uniforms.uScroll.value = this.scrollOffset;
+  // }
 
-  update() {
+  update(sliderState) {
     // const elapsedTime = this.clock.getElapsedTime();
     // this.uniforms.uTime.value = elapsedTime * 0.03;
 
@@ -131,6 +155,9 @@ export default class Figure {
     this.getSizes();
     this.setParams();
 
-    this.onScroll();
+
+    this.setSliderState(sliderState);
+
+    // this.onScroll();
   }
 }
